@@ -1,4 +1,15 @@
 {{yield}}
-<div style="text-align: center; margin-top: 50px; border-style: solid">
-    <h2>Splitting expenses for {{@personCount}} number of people </h2>
+<div>
+    Enter Name:
+    <input type="textarea" value={{currentName}} oninput={{action UpdateCurrentName}}>
+    <button onclick={{action AddName}}>ADD</button>
+
+    <ul data-test-names-list>
+        {{#each addedNameList key="id" as |name index|}}
+            <li id='name={{index}}'>{{name}}</li>
+            <button id="removeName={{index}}" onclick={{action this.RemoveName name}}>-</button>
+        {{/each}}
+
+        
+    </ul>
 </div>

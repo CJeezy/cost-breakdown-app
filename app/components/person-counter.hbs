@@ -7,10 +7,6 @@
     <button type="button" {{on "click" this.increment}}>+</button>
 </div>
 
-{{#each personCount.length}}
-    {{input type="textbox"}}
-{{/each}}
-
 <CostCalculator @personCount={{this.count}} ></CostCalculator>
 
 
