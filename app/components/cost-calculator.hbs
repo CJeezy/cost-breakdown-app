@@ -1,15 +1,27 @@
 {{yield}}
-<div>
-    Enter Name:
-    <input type="textarea" value={{currentName}} oninput={{action UpdateCurrentName}}>
-    <button onclick={{action AddName}}>ADD</button>
+<div style="text-align: center;">
+    <div>
+        <input type="textarea" placeholder="Name" value={{currentName}} oninput={{action UpdateCurrentName}}><br>
+        <input type="textarea" placeholder="What?" value={{currentEvent}} oninput={{action UpdateCurrentEvent}}><br>
+        <input type="number" placeholder="How Much?" value={{currentCost}} oninput={{action UpdateCurrentCost}}><br>
+    </div>
 
-    <ul data-test-names-list>
-        {{#each addedNameList key="id" as |name index|}}
-            <li id='name={{index}}'>{{name}}</li>
-            <button id="removeName={{index}}" onclick={{action this.RemoveName name}}>-</button>
+    <div style="margin-top: 1.5pc;">
+        <button onclick={{action AddName}}>Add Person</button>
+        <button onclick={{action GetSum}}>Split!</button>
+    </div>
+</div>
+
+<div style="text-align:center">
+    <ul data-test-event-list>
+       {{#each NameList as |name|}}
+            {{name.name}} <button id="removeName={{name}}" onclick={{action RemoveName name}}>-</button> <br> 
+            {{name.event}}<br>
+            {{name.cost}}<br>
         {{/each}}
-
-        
     </ul>
 </div>
+
+<h3>Total Cost:{{sum}}</h3>
+
+
