@@ -1,12 +1,16 @@
 import { helper } from "@ember/component/helper"
 
-var calculateSplit = ([array]) => {
-    let sum = array.reduce(function(prevVal, currVal){
-      return{
-        cost: prevVal.cost + currVal.cost
-      }
-    })
-    return sum
+function split([costs]){
+  let totalCost = 0
+
+  costs.forEach(person => {
+    if(!isNaN(parseInt(person.amountPaid))){
+      totalCost += parseInt(person.amountPaid)
+    }
+  });
+  return (totalCost/costs.length)
 }
- 
-export default helper(calculateSplit)
+export default helper(split)
+
+
+//If amount person paid > averageCost, that person is owed the difference
