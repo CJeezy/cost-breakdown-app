@@ -26,7 +26,6 @@
             <p>{{person.name}} owes ${{is-owed (calculate-split NameList) person.amountPaid}}</p>
         {{/if}}
         <button class="removeName" id="removeName={{name}}" onclick={{action RemoveName person}}>-</button> <br> 
-
     {{/each}}
     </ul>
 </div>
