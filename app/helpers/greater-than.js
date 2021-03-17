@@ -1,7 +1,7 @@
 import { helper } from '@ember/component/helper';
 
-var greaterThan = ([num1, num2]) => {
-  if (num1 > num2) return true
+var greaterThan = ([cost1, cost2]) => {
+  if (cost1 > cost2) return true
   else return false
 }
 

@@ -1,21 +1,20 @@
 {{yield}}
-<div style="text-align: center;">
-    <div>
+<div class="calculator">
+    <div class="inputs">
         <input type="textarea" placeholder="Name" value={{nameVal}} oninput={{action UpdateName}}><br>
         <input type="textarea" placeholder="What?" value={{eventVal}} oninput={{action UpdateEvent}}><br>
-        <input type="number" placeholder="How Much?" value={{payVal}} oninput={{action UpdateCost}}><br>
+        <input type="number" min="0" placeholder="How Much?" value={{payVal}} oninput={{action UpdateCost}}><br>
     </div>
 
-    <div style="margin-top: 1.5pc;">
+    <div class="addName" style="margin-top: 1.5pc;">
         <button onclick={{action AddName}}>Add Person</button>
     </div>
 </div>
 
-<div style="text-align:center">
-    <ul data-test-event-list>
+<div class="output" style="text-align:center">
+    <ul>
        {{#each this.NameList as |person|}}
         <p>{{person.name}} paid: ${{person.amountPaid}} for {{person.event}}</p>
-        <p>{{calculate-split NameList}}</p>
         
         {{#if (greater-than person.amountPaid (calculate-split NameList))}}
             <p>{{person.name}} is owed ${{is-owed person.amountPaid (calculate-split NameList)}}</p>
@@ -26,7 +25,7 @@
         {{else}}
             <p>{{person.name}} owes ${{is-owed (calculate-split NameList) person.amountPaid}}</p>
         {{/if}}
-        <button id="removeName={{name}}" onclick={{action RemoveName person}}>-</button> <br> 
+        <button class="removeName" id="removeName={{name}}" onclick={{action RemoveName person}}>-</button> <br> 
 
     {{/each}}
     </ul>

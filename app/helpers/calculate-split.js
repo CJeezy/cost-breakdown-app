@@ -4,8 +4,8 @@ function split([costs]){
   let totalCost = 0
 
   costs.forEach(person => {
-    if(!isNaN(parseInt(person.amountPaid))){
-      totalCost += parseInt(person.amountPaid)
+    if(!isNaN(parseFloat(person.amountPaid))){
+      totalCost += parseFloat(person.amountPaid)
     }
   });
   return (totalCost/costs.length)

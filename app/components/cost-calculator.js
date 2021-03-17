@@ -19,13 +19,12 @@ class Person{
 
 export default class CostCalculatorComponent extends Component {
     @tracked count = 0   
-    @tracked sum = 0
 
     @tracked nameVal
     @tracked eventVal
     @tracked payVal
     
-    @tracked NameList = []
+    @tracked NameList = emberArray([])
 
     constructor(){
         super(...arguments)
@@ -60,11 +59,12 @@ export default class CostCalculatorComponent extends Component {
             person.amountPaid = amountPaid
 
             this.NameList.addObject(person)
-            console.log(this.NameList)
+            //console.log(this.NameList)
 
             this.nameVal = ''
             this.eventVal = ''
             this.payVal = ''
+            
             this.count++
         }
         else return  
