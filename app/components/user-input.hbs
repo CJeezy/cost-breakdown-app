@@ -1,0 +1,14 @@
+{{yield}}
+<div class="calculator">
+    <div class="inputs">
+        <input type="textarea" placeholder="Name" value={{nameVal}} oninput={{action UpdateName}}><br>
+        <input type="textarea" placeholder="What?" value={{eventVal}} oninput={{action UpdateEvent}}><br>
+        <input type="number" min="0" placeholder="How Much?" value={{payVal}} oninput={{action UpdateCost}}><br>
+    </div>
+
+    <div class="addName" style="margin-top: 1.5pc;">
+        <button onclick={{action AddName}}>Add Person</button>
+    </div>
+</div>
+
+<CostCalculator @NameList={{NameList}}/>
