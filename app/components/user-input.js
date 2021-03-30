@@ -58,7 +58,7 @@ export default class UserInputComponent extends Component {
             person.amountPaid = amountPaid
 
             this.NameList.addObject(person)
-            //console.log(this.NameList)
+            console.log(this.NameList)
 
             this.nameVal = ''
             this.eventVal = ''

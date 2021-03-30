@@ -2,6 +2,8 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import fillIn from '@ember/test-helpers/dom/fill-in';
+import click from '@ember/test-helpers/dom/click';
 
 module('Integration | Component | user-input', function(hooks) {
   setupRenderingTest(hooks);
@@ -11,16 +13,7 @@ module('Integration | Component | user-input', function(hooks) {
     // Handle any actions with this.set('myAction', function(val) { ... });
 
     await render(hbs`<UserInput />`);
-
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <UserInput>
-        template block text
-      </UserInput>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.dom('[data-test-user-input]').exists();
+    
   });
 });

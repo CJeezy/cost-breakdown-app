@@ -1,12 +1,12 @@
 {{yield}}
-<div class="calculator">
+<div class="calculator" data-test-user-input>
     <div class="inputs">
-        <input type="textarea" placeholder="Name" value={{nameVal}} oninput={{action UpdateName}}><br>
-        <input type="textarea" placeholder="What?" value={{eventVal}} oninput={{action UpdateEvent}}><br>
-        <input type="number" min="0" placeholder="How Much?" value={{payVal}} oninput={{action UpdateCost}}><br>
+        <input data-test-name-input type="textarea" placeholder="Name" value={{nameVal}} oninput={{action UpdateName}}><br>
+        <input data-test-event-input type="textarea" placeholder="What?" value={{eventVal}} oninput={{action UpdateEvent}}><br>
+        <input data-test-cost-input type="number" min="0" placeholder="How Much?" value={{payVal}} oninput={{action UpdateCost}}><br>
     </div>
 
-    <div class="addName" style="margin-top: 1.5pc;">
+    <div class="addName" style="margin-top: 1.5pc;" data-test-add-name-button>
         <button onclick={{action AddName}}>Add Person</button>
     </div>
 </div>
