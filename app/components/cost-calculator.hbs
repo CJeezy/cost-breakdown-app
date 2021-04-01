@@ -16,23 +16,28 @@
     {{@name}}
 </div>
 
-<div class="output" style="text-align:center">
-    <ul data-test-output>
-       {{#each this.NameList as |person|}}
-       <li>
-        <p>{{person.name}} paid: ${{person.amountPaid}} for {{person.event}}</p>
-        
-        {{#if (greater-than person.amountPaid (calculate-split NameList))}}
-            <p>{{person.name}} is owed ${{is-owed person.amountPaid (calculate-split NameList)}}</p>
+<div class="row">
+    <div class="column">
+        <ul class="flex-container" data-test-output>
+            {{#each this.NameList as |person|}}
+            <div class="card">
+                <li class="flex-item">
+                    <p>{{person.name}} paid: ${{person.amountPaid}} for {{person.event}}</p>
 
-        {{else if (is-equal person.amountPaid (calculate-split NameList))}}
-            <p>{{person.name}} owes nothing</p>
+                    {{#if (greater-than person.amountPaid (calculate-split NameList))}}
+                    <p>{{person.name}} is owed ${{is-owed person.amountPaid (calculate-split NameList)}}</p>
 
-        {{else}}
-            <p>{{person.name}} owes ${{is-owed (calculate-split NameList) person.amountPaid}}</p>
-        {{/if}}
-        <button class="removeName" id="removeName={{name}}" onclick={{action RemoveName person}}>-</button> <br> 
-        </li>
-    {{/each}}
-    </ul>
+                    {{else if (is-equal person.amountPaid (calculate-split NameList))}}
+                    <p>{{person.name}} owes nothing</p>
+
+                    {{else}}
+                    <p>{{person.name}} owes ${{is-owed (calculate-split NameList) person.amountPaid}}</p>
+                    {{/if}}
+                    <button class="removeName" id="removeName={{name}}" onclick={{action RemoveName person}}>-</button>
+                    <br>
+                 </li>
+                </div>
+            {{/each}}
+        </ul>
+    </div>
 </div>
