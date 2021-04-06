@@ -20,6 +20,7 @@ module('Integration | Component | cost-calculator', function(hooks) {
     await fillIn('[data-test-cost-input]', '100')
     await click('[data-test-add-name-button]')
 
+
     assert.dom('[data-test-name-input]').hasText('')
     assert.dom('[data-test-output]').exists();
 
@@ -30,7 +31,7 @@ module('Integration | Component | cost-calculator', function(hooks) {
     //************************************************************************************************/
     //I didnt know how to pass in the ember array because the code above with fillIn and click would always return undefined.
     //I assume the values entered with fillIn and click do not update the actual value of the Person class as intended, 
-    //so I hardcoded the values of the array here.
+    //so I hardcoded the values of the array here. this.set also somehow gave me an undefined value
     this.NameList = emberArray([])
 
       class Person{
