@@ -1,7 +1,6 @@
 # cost-breakdown-app
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is a very lightweight version of a bill splitter application. The user can enter what a person paid for and how much. Then for each event, based on the amount the person paid, it displays how much is owed.
 
 ## Prerequisites
 
